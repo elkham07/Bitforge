@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Neural Forge</title>
+    <meta name="description" content="Comprehensive digital solutions for coaches and sports professionals.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js" type="module"></script>
+    <style>
+        .services-hero {
+            padding: 20rem 0 8rem 0;
+            position: relative;
+        }
+        
+        .services-hero h1 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 3rem;
+            letter-spacing: -0.04em;
+        }
+        
+        .services-hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 4rem;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-bottom: 8rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .service-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+        
+        .service-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        
+        .service-features {
+            list-style: none;
+        }
+        
+        .service-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .process-section {
+            padding: 8rem 0;
+            background: var(--dark-card);
+        }
+        
+        .process-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        
+        .process-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        .process-step {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .step-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+        }
+        
+        .step-description {
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        
+        .pricing-section {
+            padding: 8rem 0;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border: 2px solid rgba(0,0,0,0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card.featured::before {
+            content: 'POPULAR';
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+        
+        .plan-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        
+        .plan-price {
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-period {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .plan-features {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .plan-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .plan-features li::before {
+            content: '✓';
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .process-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">NEURAL <span>FORGE</span></div>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="work.html">Work</a>
+                        <a href="services.html" class="active">Services</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="full-menu" id="fullMenu">
+        <div class="menu-inner">
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li><a href="work.html" class="menu-item" style="--i: 1">Work</a></li>
+                    <li><a href="services.html" class="menu-item" style="--i: 2">Services</a></li>
+                    <li><a href="about.html" class="menu-item" style="--i: 3">About</a></li>
+                    <li><a href="contact.html" class="menu-item" style="--i: 4">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-footer">
+                <a href="#" class="menu-social">Facebook</a>
+                <a href="#" class="menu-social">Instagram</a>
+                <a href="#" class="menu-social">Twitter</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="services-hero">
+            <div class="container">
+                <h1>OUR<br><span>SERVICES</span></h1>
+                <p class="subtitle">Comprehensive digital solutions designed to transform your coaching business and accelerate your success.</p>
+            </div>
+        </section>
+
+        <section class="services-showcase">
+            <div class="container">
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">📱</div>
+                        <h3 class="service-title">Mobile App Development</h3>
+                        <p class="service-description">Custom mobile applications for iOS and Android that enhance client engagement and streamline your coaching operations.</p>
+                        <ul class="service-features">
+                            <li>Native iOS & Android apps</li>
+                            <li>Real-time client tracking</li>
+                            <li>Push notifications</li>
+                            <li>Offline functionality</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🌐</div>
+                        <h3 class="service-title">Web Platform Development</h3>
+                        <p class="service-description">Scalable web platforms that serve as the digital headquarters for your coaching business.</p>
+                        <ul class="service-features">
+                            <li>Custom dashboard design</li>
+                            <li>Client management system</li>
+                            <li>Scheduling & booking</li>
+                            <li>Payment integration</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">📊</div>
+                        <h3 class="service-title">Analytics & Insights</h3>
+                        <p class="service-description">Advanced analytics tools that provide actionable insights into your business performance and client progress.</p>
+                        <ul class="service-features">
+                            <li>Performance tracking</li>
+                            <li>Custom reports</li>
+                            <li>Predictive analytics</li>
+                            <li>ROI measurement</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h3 class="service-title">E-Learning Solutions</h3>
+                        <p class="service-description">Complete online learning platforms for delivering courses, certifications, and training programs.</p>
+                        <ul class="service-features">
+                            <li>Video course hosting</li>
+                            <li>Assessment tools</li>
+                            <li>Certificate generation</li>
+                            <li>Community features</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">🤖</div>
+                        <h3 class="service-title">AI Integration</h3>
+                        <p class="service-description">Cutting-edge AI solutions that automate routine tasks and provide intelligent recommendations.</p>
+                        <ul class="service-features">
+                            <li>Chatbot integration</li>
+                            <li>Predictive modeling</li>
+                            <li>Automated insights</li>
+                            <li>Personalization engine</li>
+                        </ul>
+                    </div>
+
+                    <div class="service-card">
+                        <div class="service-icon">☁️</div>
+                        <h3 class="service-title">Cloud Infrastructure</h3>
+                        <p class="service-description">Robust cloud solutions that ensure your applications are fast, secure, and always available.</p>
+                        <ul class="service-features">
+                            <li>Scalable hosting</li>
+                            <li>Security & compliance</li>
+                            <li>Backup & recovery</li>
+                            <li>24/7 monitoring</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <div class="container">
+                <div class="process-container">
+                    <div class="process-content">
+                        <h2>Our<br><span>Process</span></h2>
+                        <p>We follow a proven methodology to ensure your project is delivered on time, within budget, and exceeds expectations.</p>
+                    </div>
+                    <div class="process-steps">
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4 class="step-title">Discovery</h4>
+                            <p class="step-description">Understanding your business goals, challenges, and requirements through comprehensive consultation.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4 class="step-title">Strategy</h4>
+                            <p class="step-description">Developing a detailed roadmap and technical architecture tailored to your specific needs.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4 class="step-title">Development</h4>
+                            <p class="step-description">Building your solution using cutting-edge technologies and best practices.</p>
+                        </div>
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4 class="step-title">Launch & Support</h4>
+                            <p class="step-description">Deploying your solution and providing ongoing support and optimization.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Investment Plans</h2>
+                    <p>Flexible pricing options designed to scale with your business</p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Starter</h3>
+                        <div class="plan-price">$5,000</div>
+                        <div class="plan-period">per project</div>
+                        <ul class="plan-features">
+                            <li>Basic web platform</li>
+                            <li>Up to 100 users</li>
+                            <li>Standard features</li>
+                            <li>Email support</li>
+                            <li>3-month warranty</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <h3 class="plan-name">Professional</h3>
+                        <div class="plan-price">$15,000</div>
+                        <div class="plan-period">per project</div>
+                        <ul class="plan-features">
+                            <li>Custom web + mobile</li>
+                            <li>Up to 500 users</li>
+                            <li>Advanced features</li>
+                            <li>Priority support</li>
+                            <li>6-month warranty</li>
+                            <li>Analytics dashboard</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-primary">Get Started</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3 class="plan-name">Enterprise</h3>
+                        <div class="plan-price">Custom</div>
+                        <div class="plan-period">tailored solution</div>
+                        <ul class="plan-features">
+                            <li>Full ecosystem</li>
+                            <li>Unlimited users</li>
+                            <li>Custom features</li>
+                            <li>Dedicated support</li>
+                            <li>12-month warranty</li>
+                            <li>AI integration</li>
+                        </ul>
+                        <a href="contact.html" class="btn btn-outline">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-content-grid">
+                <div class="footer-text-side">
+                    <div class="footer-column-group">
+                        <div class="footer-col">
+                            <span class="col-label">Want to collaborate?</span>
+                            <h4>Work with us</h4>
+                            <a href="mailto:business@neuralforge.ru" class="footer-link">business@neuralforge.com</a>
+                        </div>
+                        <div class="footer-col">
+                            <span class="col-label">Want to say hi?</span>
+                            <h4>General inquiries</h4>
+                            <a href="mailto:hello@neuralforge.ru" class="footer-link">hello@neuralforge.com</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column-group">
+                        <div class="footer-col">
+                            <span class="col-label">Want to join our team?</span>
+                            <h4>Become part of Neural Forge</h4>
+                            <a href="#" class="footer-link large">Apply here ↗</a>
+                        </div>
+                        <div class="footer-col">
+                            <span class="col-label">Learning</span>
+                            <h4>Internship</h4>
+                            <a href="#" class="footer-link large">Learn more ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-offices">
+                        <span class="col-label">Our Locations</span>
+                        <div class="offices-grid">
+                            <div class="office-item">
+                                <h5>Moscow</h5>
+                                <p>42 Innovation St.<br>Cifra Hub, 8th Floor<br>Tel: +7 (495) 123-45-67</p>
+                            </div>
+                            <div class="office-item">
+                                <h5>Kazan</h5>
+                                <p>15 Sportivnaya St.<br>IT-Park Technopark<br>Tel: +7 (843) 987-65-43</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-visual-side">
+                    <div class="footer-animation-placeholder" id="footer-lottie">
+                        <dotlottie-wc src="https://lottie.host/2f9e23d8-02c5-4fa0-8e26-b7ab70e84875/k5pQuivOho.lottie" style="width: 500px; height: 500px" autoplay loop></dotlottie-wc>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-wrap">
+                <div class="footer-copyright">
+                    <div class="logo">NEURAL <span>FORGE</span></div>
+                    <p>&copy; 2026 Neural Forge. All rights reserved. <a href="#">Privacy Statement</a></p>
+                </div>
+                <div class="footer-back-wrap">
+                    <div class="back-shape">
+                        <a href="#" class="back-to-top">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

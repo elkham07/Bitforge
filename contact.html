@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Neural Forge</title>
+    <meta name="description" content="Get in touch with Neural Forge. Let's discuss how we can transform your coaching business with our digital solutions.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js" type="module"></script>
+    <style>
+        .contact-hero {
+            padding: 20rem 0 8rem 0;
+            position: relative;
+        }
+        
+        .contact-hero h1 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 3rem;
+            letter-spacing: -0.04em;
+        }
+        
+        .contact-hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 4rem;
+        }
+        
+        .contact-section {
+            padding: 8rem 0;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: start;
+        }
+        
+        .contact-info {
+            padding: 3rem;
+        }
+        
+        .contact-info h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .contact-info p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 3rem;
+        }
+        
+        .contact-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: start;
+            gap: 1.5rem;
+            padding: 2rem;
+            background: var(--dark-card);
+            border-radius: 15px;
+            transition: var(--transition);
+        }
+        
+        .contact-method:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .method-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+        
+        .method-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .method-content p {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+        
+        .method-content a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .method-content a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .form-header {
+            margin-bottom: 2rem;
+        }
+        
+        .form-header h3 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .form-header p {
+            color: var(--text-muted);
+        }
+        
+        .form-group {
+            margin-bottom: 2rem;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--text-dark);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(0,0,0,0.05);
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background: var(--bg-light);
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+        }
+        
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .form-submit {
+            margin-top: 2rem;
+        }
+        
+        .btn-submit {
+            width: 100%;
+            padding: 1.5rem;
+            background: var(--text-dark);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .btn-submit:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .locations-section {
+            padding: 8rem 0;
+            background: var(--dark-card);
+        }
+        
+        .locations-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .locations-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .locations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+        }
+        
+        .location-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .location-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .location-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .location-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .location-address {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .location-contact {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+        
+        .location-contact:hover {
+            color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .faq-section {
+            padding: 8rem 0;
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .faq-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            background: white;
+            border: 1px solid rgba(0,0,0,0.05);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 2rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+        }
+        
+        .faq-question:hover {
+            background: var(--dark-card);
+        }
+        
+        .faq-toggle {
+            font-size: 1.5rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 2rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 2rem 2rem 2rem;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .locations-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">NEURAL <span>FORGE</span></div>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="work.html">Work</a>
+                        <a href="services.html">Services</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html" class="active">Contact</a>
+                    </div>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="full-menu" id="fullMenu">
+        <div class="menu-inner">
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li><a href="work.html" class="menu-item" style="--i: 1">Work</a></li>
+                    <li><a href="services.html" class="menu-item" style="--i: 2">Services</a></li>
+                    <li><a href="about.html" class="menu-item" style="--i: 3">About</a></li>
+                    <li><a href="contact.html" class="menu-item" style="--i: 4">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-footer">
+                <a href="#" class="menu-social">Facebook</a>
+                <a href="#" class="menu-social">Instagram</a>
+                <a href="#" class="menu-social">Twitter</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <h1>GET IN<br><span>TOUCH</span></h1>
+                <p class="subtitle">Ready to transform your coaching business? Let's discuss how we can help you achieve your goals.</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Let's Start<br><span>a Conversation</span></h2>
+                        <p>Whether you're looking to streamline your operations, scale your business, or explore new possibilities, we're here to help. Reach out through any of the channels below, and our team will get back to you within 24 hours.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <div class="method-icon">📧</div>
+                                <div class="method-content">
+                                    <h3>Email Us</h3>
+                                    <p>For general inquiries and project discussions</p>
+                                    <a href="mailto:hello@neuralforge.com">hello@neuralforge.com</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="method-icon">💼</div>
+                                <div class="method-content">
+                                    <h3>Business Inquiries</h3>
+                                    <p>For partnerships and enterprise solutions</p>
+                                    <a href="mailto:business@neuralforge.com">business@neuralforge.com</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-method">
+                                <div class="method-icon">📱</div>
+                                <div class="method-content">
+                                    <h3>Call Us</h3>
+                                    <p>Monday to Friday, 9 AM - 6 PM (MSK)</p>
+                                    <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form">
+                        <div class="form-header">
+                            <h3>Send Us a Message</h3>
+                            <p>Fill out the form below and we'll respond within 24 hours</p>
+                        </div>
+                        
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company/Organization</label>
+                                <input type="text" id="company" name="company">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="service">Service Interest *</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="mobile">Mobile App Development</option>
+                                    <option value="web">Web Platform Development</option>
+                                    <option value="analytics">Analytics & Insights</option>
+                                    <option value="elearning">E-Learning Solutions</option>
+                                    <option value="ai">AI Integration</option>
+                                    <option value="cloud">Cloud Infrastructure</option>
+                                    <option value="custom">Custom Solution</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Project Details *</label>
+                                <textarea id="message" name="message" placeholder="Tell us about your project, goals, and timeline..." required></textarea>
+                            </div>
+                            
+                            <div class="form-submit">
+                                <button type="submit" class="btn-submit">Send Message</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="locations-section">
+            <div class="container">
+                <div class="locations-header">
+                    <h2>Visit Our<br><span>Offices</span></h2>
+                    <p>Meet our team in person at one of our locations</p>
+                </div>
+                
+                <div class="locations-grid">
+                    <div class="location-card">
+                        <div class="location-icon">🏢</div>
+                        <h3 class="location-name">Moscow</h3>
+                        <p class="location-address">
+                            42 Innovation Street<br>
+                            Cifra Hub, 8th Floor<br>
+                            Moscow, 125009
+                        </p>
+                        <a href="tel:+74951234567" class="location-contact">+7 (495) 123-45-67</a>
+                    </div>
+
+                    <div class="location-card">
+                        <div class="location-icon">🏢</div>
+                        <h3 class="location-name">Kazan</h3>
+                        <p class="location-address">
+                            15 Sportivnaya Street<br>
+                            IT-Park Technopark<br>
+                            Kazan, 420111
+                        </p>
+                        <a href="tel:+78439876543" class="location-contact">+7 (843) 987-65-43</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="faq-header">
+                    <h2>Frequently Asked<br><span>Questions</span></h2>
+                    <p>Quick answers to common questions about our services</p>
+                </div>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            How long does a typical project take?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Project timelines vary depending on complexity and scope. A simple web platform typically takes 2-3 months, while comprehensive mobile and web solutions can take 4-6 months. We'll provide a detailed timeline during our initial consultation.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What is your pricing structure?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We offer flexible pricing models including fixed-price projects, hourly rates, and retainer agreements. Our starter packages begin at $5,000, with enterprise solutions customized to your specific needs and budget.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Do you provide ongoing support?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! All projects include a warranty period (3-12 months depending on the package), and we offer ongoing support and maintenance plans to ensure your solution continues to perform optimally.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            Can you work with our existing systems?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Absolutely. We specialize in integrating with existing systems and can work with your current technology stack. We'll assess your infrastructure during the discovery phase and recommend the best approach.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            What industries do you serve?
+                            <span class="faq-toggle">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>While we specialize in sports and coaching, we work with various industries including fitness, wellness, education, and healthcare. Our solutions are adaptable to any business that needs client management and engagement tools.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-content-grid">
+                <div class="footer-text-side">
+                    <div class="footer-column-group">
+                        <div class="footer-col">
+                            <span class="col-label">Want to collaborate?</span>
+                            <h4>Work with us</h4>
+                            <a href="mailto:business@neuralforge.ru" class="footer-link">business@neuralforge.com</a>
+                        </div>
+                        <div class="footer-col">
+                            <span class="col-label">Want to say hi?</span>
+                            <h4>General inquiries</h4>
+                            <a href="mailto:hello@neuralforge.ru" class="footer-link">hello@neuralforge.com</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column-group">
+                        <div class="footer-col">
+                            <span class="col-label">Want to join our team?</span>
+                            <h4>Become part of Neural Forge</h4>
+                            <a href="#" class="footer-link large">Apply here ↗</a>
+                        </div>
+                        <div class="footer-col">
+                            <span class="col-label">Learning</span>
+                            <h4>Internship</h4>
+                            <a href="#" class="footer-link large">Learn more ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-offices">
+                        <span class="col-label">Our Locations</span>
+                        <div class="offices-grid">
+                            <div class="office-item">
+                                <h5>Moscow</h5>
+                                <p>42 Innovation St.<br>Cifra Hub, 8th Floor<br>Tel: +7 (495) 123-45-67</p>
+                            </div>
+                            <div class="office-item">
+                                <h5>Kazan</h5>
+                                <p>15 Sportivnaya St.<br>IT-Park Technopark<br>Tel: +7 (843) 987-65-43</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-visual-side">
+                    <div class="footer-animation-placeholder" id="footer-lottie">
+                        <dotlottie-wc src="https://lottie.host/2f9e23d8-02c5-4fa0-8e26-b7ab70e84875/k5pQuivOho.lottie" style="width: 500px; height: 500px" autoplay loop></dotlottie-wc>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-wrap">
+                <div class="footer-copyright">
+                    <div class="logo">NEURAL <span>FORGE</span></div>
+                    <p>&copy; 2026 Neural Forge. All rights reserved. <a href="#">Privacy Statement</a></p>
+                </div>
+                <div class="footer-back-wrap">
+                    <div class="back-shape">
+                        <a href="#" class="back-to-top">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                const wasActive = faqItem.classList.contains('active');
+                
+                // Close all FAQ items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+                
+                // Open clicked item if it wasn't active
+                if (!wasActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would normally send the data to your server
+            // For now, we'll just show a success message
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
+</body>
+</html>

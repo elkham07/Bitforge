@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Neural Forge</title>
+    <meta name="description" content="Learn about Neural Forge's mission, team, and journey to transform coaching through technology.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.9.10/dist/dotlottie-wc.js" type="module"></script>
+    <style>
+        .about-hero {
+            padding: 20rem 0 8rem 0;
+            position: relative;
+        }
+        
+        .about-hero h1 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            line-height: 0.9;
+            margin-bottom: 3rem;
+            letter-spacing: -0.04em;
+        }
+        
+        .about-hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin-bottom: 4rem;
+        }
+        
+        .story-section {
+            padding: 8rem 0;
+            background: var(--dark-card);
+        }
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+        
+        .story-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .story-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .story-visual {
+            height: 600px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-section {
+            padding: 8rem 0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 3rem;
+            text-align: center;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        
+        .team-section {
+            padding: 8rem 0;
+            background: var(--dark-card);
+        }
+        
+        .team-header {
+            text-align: center;
+            margin-bottom: 6rem;
+        }
+        
+        .team-header h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .team-member {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .member-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .member-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+        
+        .member-role {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .member-bio {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(128, 0, 32, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .values-section {
+            padding: 8rem 0;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 2rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .value-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+        
+        .value-description {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            padding: 8rem 0;
+            background: var(--secondary);
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-content h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 2rem;
+            line-height: 1.1;
+        }
+        
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .story-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <div class="logo">NEURAL <span>FORGE</span></div>
+                <div class="nav-right">
+                    <div class="nav-links">
+                        <a href="work.html">Work</a>
+                        <a href="services.html">Services</a>
+                        <a href="about.html" class="active">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="full-menu" id="fullMenu">
+        <div class="menu-inner">
+            <nav class="menu-nav">
+                <ul class="menu-list">
+                    <li><a href="work.html" class="menu-item" style="--i: 1">Work</a></li>
+                    <li><a href="services.html" class="menu-item" style="--i: 2">Services</a></li>
+                    <li><a href="about.html" class="menu-item" style="--i: 3">About</a></li>
+                    <li><a href="contact.html" class="menu-item" style="--i: 4">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="menu-footer">
+                <a href="#" class="menu-social">Facebook</a>
+                <a href="#" class="menu-social">Instagram</a>
+                <a href="#" class="menu-social">Twitter</a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="about-hero">
+            <div class="container">
+                <h1>ABOUT<br><span>NEURAL FORGE</span></h1>
+                <p class="subtitle">We're on a mission to revolutionize coaching through innovative technology and human-centered design.</p>
+            </div>
+        </section>
+
+        <section class="story-section">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <h2>Our<br><span>Story</span></h2>
+                        <p>Founded in 2022, Neural Forge emerged from a simple observation: coaches were spending more time on administrative tasks than on what they do best – transforming lives through coaching.</p>
+                        <p>Our founders, a team of tech enthusiasts and sports professionals, came together with a shared vision: create digital tools that automate the mundane so coaches can focus on the meaningful.</p>
+                        <p>Today, we're proud to serve hundreds of coaching businesses worldwide, helping them scale their impact while maintaining the personal touch that makes their coaching special.</p>
+                        <a href="#" class="btn btn-primary">Learn More About Our Journey</a>
+                    </div>
+                    <div class="story-visual"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Coaches Served</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">Active Users</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Client Satisfaction</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support Available</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <div class="team-header">
+                    <h2>Meet Our<br><span>Leadership Team</span></h2>
+                    <p>The passionate individuals driving our mission forward</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="member-avatar">AK</div>
+                        <h3 class="member-name">Alex Kovalev</h3>
+                        <p class="member-role">CEO & Co-Founder</p>
+                        <p class="member-bio">Former professional athlete turned tech entrepreneur. Alex brings deep understanding of both sports and technology to drive our vision.</p>
+                        <div class="member-social">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-avatar">MP</div>
+                        <h3 class="member-name">Maria Petrova</h3>
+                        <p class="member-role">CTO & Co-Founder</p>
+                        <p class="member-bio">Full-stack architect with 15+ years of experience building scalable solutions. Maria ensures our technology is robust and future-proof.</p>
+                        <div class="member-social">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">gh</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-avatar">DS</div>
+                        <h3 class="member-name">Dmitry Sokolov</h3>
+                        <p class="member-role">Head of Product</p>
+                        <p class="member-bio">Product strategist with a passion for user experience. Dmitry ensures our solutions solve real problems for coaches.</p>
+                        <div class="member-social">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-avatar">EN</div>
+                        <h3 class="member-name">Elena Novikova</h3>
+                        <p class="member-role">Head of Design</p>
+                        <p class="member-bio">Award-winning designer focused on creating intuitive and beautiful interfaces that coaches love to use.</p>
+                        <div class="member-social">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">be</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-avatar">IV</div>
+                        <h3 class="member-name">Igor Volkov</h3>
+                        <p class="member-role">Head of Engineering</p>
+                        <p class="member-bio">Engineering leader with expertise in building high-performance systems. Igor leads our technical excellence initiatives.</p>
+                        <div class="member-social">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">gh</a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <div class="member-avatar">AB</div>
+                        <h3 class="member-name">Anna Belova</h3>
+                        <p class="member-role">Head of Customer Success</p>
+                        <p class="member-bio">Customer experience expert dedicated to ensuring every coach gets maximum value from our platform.</p>
+                        <div class="member-social">
+                            <a href="#" class="social-link">in</a>
+                            <a href="#" class="social-link">tw</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="values-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Core<br><span>Values</span></h2>
+                    <p>The principles that guide everything we do</p>
+                </div>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">🎯</div>
+                        <h3 class="value-title">Purpose-Driven</h3>
+                        <p class="value-description">Every feature we build serves a meaningful purpose for coaches and their clients.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">💡</div>
+                        <h3 class="value-title">Innovation</h3>
+                        <p class="value-description">We push boundaries and explore new possibilities to solve complex challenges.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">🤝</div>
+                        <h3 class="value-title">Partnership</h3>
+                        <p class="value-description">We work alongside our clients as true partners in their success journey.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">📊</div>
+                        <h3 class="value-title">Excellence</h3>
+                        <p class="value-description">We strive for excellence in every line of code and every user interaction.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">🌱</div>
+                        <h3 class="value-title">Growth</h3>
+                        <p class="value-description">We believe in continuous learning and helping our clients grow their businesses.</p>
+                    </div>
+
+                    <div class="value-card">
+                        <div class="value-icon">❤️</div>
+                        <h3 class="value-title">Passion</h3>
+                        <p class="value-description">We're passionate about technology and its power to transform coaching.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Transform<br><span>Your Coaching Business?</span></h2>
+                    <p>Join hundreds of coaches who have already revolutionized their operations with Neural Forge</p>
+                    <a href="contact.html" class="btn btn-light">Get Started Today</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-content-grid">
+                <div class="footer-text-side">
+                    <div class="footer-column-group">
+                        <div class="footer-col">
+                            <span class="col-label">Want to collaborate?</span>
+                            <h4>Work with us</h4>
+                            <a href="mailto:business@neuralforge.ru" class="footer-link">business@neuralforge.com</a>
+                        </div>
+                        <div class="footer-col">
+                            <span class="col-label">Want to say hi?</span>
+                            <h4>General inquiries</h4>
+                            <a href="mailto:hello@neuralforge.ru" class="footer-link">hello@neuralforge.com</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-column-group">
+                        <div class="footer-col">
+                            <span class="col-label">Want to join our team?</span>
+                            <h4>Become part of Neural Forge</h4>
+                            <a href="#" class="footer-link large">Apply here ↗</a>
+                        </div>
+                        <div class="footer-col">
+                            <span class="col-label">Learning</span>
+                            <h4>Internship</h4>
+                            <a href="#" class="footer-link large">Learn more ↗</a>
+                        </div>
+                    </div>
+
+                    <div class="footer-offices">
+                        <span class="col-label">Our Locations</span>
+                        <div class="offices-grid">
+                            <div class="office-item">
+                                <h5>Moscow</h5>
+                                <p>42 Innovation St.<br>Cifra Hub, 8th Floor<br>Tel: +7 (495) 123-45-67</p>
+                            </div>
+                            <div class="office-item">
+                                <h5>Kazan</h5>
+                                <p>15 Sportivnaya St.<br>IT-Park Technopark<br>Tel: +7 (843) 987-65-43</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-visual-side">
+                    <div class="footer-animation-placeholder" id="footer-lottie">
+                        <dotlottie-wc src="https://lottie.host/2f9e23d8-02c5-4fa0-8e26-b7ab70e84875/k5pQuivOho.lottie" style="width: 500px; height: 500px" autoplay loop></dotlottie-wc>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-wrap">
+                <div class="footer-copyright">
+                    <div class="logo">NEURAL <span>FORGE</span></div>
+                    <p>&copy; 2026 Neural Forge. All rights reserved. <a href="#">Privacy Statement</a></p>
+                </div>
+                <div class="footer-back-wrap">
+                    <div class="back-shape">
+                        <a href="#" class="back-to-top">Back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
