@@ -59,46 +59,49 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Fluid Mercury Drop Menu Logic
+    // Text Rotation Logic
+    const words = document.querySelectorAll('#rotatingText .word');
+    if (words.length > 0) {
+        let currentWordIndex = 0;
+        
+        setInterval(() => {
+            const currentWord = words[currentWordIndex];
+            currentWord.classList.remove('active');
+            currentWord.classList.add('out');
+            
+            setTimeout(() => {
+                currentWord.classList.remove('out');
+            }, 600); // Wait for transition to finish before removing 'out' class
+            
+            currentWordIndex = (currentWordIndex + 1) % words.length;
+            const nextWord = words[currentWordIndex];
+            
+            nextWord.classList.add('active');
+        }, 3000);
+    }
+
+    // Circle Mask Reveal Logic
+    const rightMenuTrigger = document.getElementById('rightMenuTrigger');
     const menuToggle = document.getElementById('menuToggle');
     const fullMenu = document.getElementById('fullMenu');
     const menuItems = document.querySelectorAll('.menu-item');
     let isMenuOpen = false;
 
-    if (menuToggle && fullMenu) {
-        menuToggle.addEventListener('click', () => {
+    if (rightMenuTrigger && fullMenu) {
+        rightMenuTrigger.addEventListener('click', () => {
             if (!isMenuOpen) {
-                // Open Menu - Mercury Drop Effect
+                // Open Menu - Circle Mask Reveal
                 fullMenu.classList.add('active');
                 menuToggle.classList.add('active');
+                rightMenuTrigger.classList.add('active');
                 document.body.classList.add('menu-open');
-                
-                // Trigger the path animation by forcing a reflow
-                void fullMenu.offsetWidth;
-                
                 isMenuOpen = true;
             } else {
-                // Close Menu - Mercury Flow Back
-                menuItems.forEach(item => {
-                    item.style.transitionDelay = '0s';
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(20px)';
-                });
-
-                setTimeout(() => {
-                    fullMenu.classList.remove('active');
-                    menuToggle.classList.remove('active');
-                    document.body.classList.remove('menu-open');
-                    
-                    setTimeout(() => {
-                        // Reset menu items for next opening
-                        menuItems.forEach((item, index) => {
-                            item.style.transitionDelay = `${(index + 1) * 0.08}s`;
-                            item.style.opacity = '';
-                            item.style.transform = '';
-                        });
-                    }, 400); 
-                }, 200); 
+                // Close Menu
+                fullMenu.classList.remove('active');
+                menuToggle.classList.remove('active');
+                rightMenuTrigger.classList.remove('active');
+                document.body.classList.remove('menu-open');
                 isMenuOpen = false;
             }
         });
